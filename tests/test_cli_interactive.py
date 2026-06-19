@@ -2,7 +2,7 @@ import builtins
 import io
 import sys
 import unittest
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from unittest.mock import patch
 
 from src.cli import main as cli_main
@@ -46,6 +46,21 @@ class CliInteractiveTests(unittest.TestCase):
         self.assertIn('量化策略 CLI', out)
         self.assertIn('常用命令：', out)
         self.assertNotIn('QuantCLI 交互模式', out)
+
+    def test_data_without_subcommand_prints_data_help(self):
+        output = io.StringIO()
+        errors = io.StringIO()
+
+        with patch.object(sys, 'argv', ['QuantCLI.bat', 'data']), \
+             patch.object(sys, 'stdin', _NonInteractiveStdin()), \
+             redirect_stdout(output), \
+             redirect_stderr(errors):
+            cli_main.main()
+
+        out = output.getvalue()
+        self.assertIn('usage: strategy data', out)
+        self.assertIn('{list,update,info,verify}', out)
+        self.assertEqual('', errors.getvalue())
 
 
 if __name__ == '__main__':

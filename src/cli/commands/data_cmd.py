@@ -11,7 +11,8 @@ from src.cli.colors import header, success, error, bold
 
 def register(subparsers):
     p = subparsers.add_parser('data', help='data management')
-    sub = p.add_subparsers(dest='data_action', required=True)
+    p.set_defaults(func=handle_help, parser=p)
+    sub = p.add_subparsers(dest='data_action')
 
     sub.add_parser('list', help='list local stock data files').set_defaults(func=handle_list)
 
@@ -27,6 +28,10 @@ def register(subparsers):
     p_verify.add_argument('symbol', help='stock symbol')
     p_verify.add_argument('--days', type=int, default=3, help='recent local rows to compare')
     p_verify.set_defaults(func=handle_verify)
+
+
+def handle_help(args):
+    args.parser.print_help()
 
 
 def handle_list(args):
