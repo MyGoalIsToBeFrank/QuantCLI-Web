@@ -688,6 +688,7 @@ body {
   }
 
   .chart-card {
+    flex: 0 0 380px;
     height: 380px;
   }
 

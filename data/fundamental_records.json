@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-06-19T18:08:24.967475",
+    "updated_at": "2026-06-20T00:38:59.146473",
     "interval_days": 30
   },
   "records": {
@@ -24,7 +24,7 @@
       "name": "陕西煤业",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -33,7 +33,7 @@
       "name": "中际旭创",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -42,7 +42,7 @@
       "name": "士兰微",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -51,7 +51,7 @@
       "name": "立昂微",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -60,7 +60,7 @@
       "name": "京东方A",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -69,7 +69,7 @@
       "name": "华天科技",
       "market": "A股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     },
@@ -78,7 +78,7 @@
       "name": "AMD",
       "market": "美股",
       "last_analysis_date": null,
-      "next_due_date": "2026-06-19",
+      "next_due_date": "2026-06-20",
       "report_path": null,
       "history": []
     }
