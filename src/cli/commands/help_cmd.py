@@ -103,7 +103,7 @@ def _print_global_help():
         print(f'  {bold(name):<12} {info["desc"]}')
     print()
     print(subheader('快速入口：'))
-    print(f'  {bold("QuantCLI.bat")}         显示常用命令提示')
+    print(f'  {bold("QuantCLI.bat")}         进入 QuantCLI 交互模式')
     print(f'  {bold("QuantWebUI.bat")}       启动 Web UI')
     print()
     print(dim('提示：使用 "QuantCLI.bat help <命令>" 查看具体命令用法与示例。'))

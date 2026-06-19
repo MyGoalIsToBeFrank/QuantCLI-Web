@@ -33,7 +33,7 @@ QuantCLI.bat decide 002156.SZ --open 68.0
 scripts\decide.bat 002156.SZ --open 68.0
 ```
 
-直接运行 `QuantCLI.bat`（不带参数）会显示常用命令提示。
+直接运行 `QuantCLI.bat`（不带参数）会进入 `QuantCLI>` 交互模式，可连续输入 `help`、`decide 002156.SZ --open 68.0` 等命令，输入 `exit` 退出。
 
 ---
 

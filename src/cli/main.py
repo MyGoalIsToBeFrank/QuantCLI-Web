@@ -14,6 +14,7 @@
 import sys
 import os
 import io
+import shlex
 
 # 强制 CLI 输出使用 UTF-8，避免 Windows 终端默认 GBK 导致的中文乱码。
 # 仅在真实终端下重包装 stdout/stderr；在 pytest 捕获/重定向场景下跳过，
@@ -69,20 +70,12 @@ def _print_prompt():
     print(f'  {bold("help")} [COMMAND]                  显示帮助信息')
     print()
     print(dim('提示：可直接运行 QuantCLI.bat analyze 002156.SZ，无需输入 strategy 前缀。'))
+    print(dim('直接运行 QuantCLI.bat 可进入 QuantCLI> 交互模式。'))
     print(dim('详细帮助：QuantCLI.bat --help 或 QuantCLI.bat help <命令>'))
 
 
-def main():
-    _normalize_argv()
-
+def _build_parser():
     import argparse
-
-    # 提前检查 --no-color，以便 colors 模块能正确禁用颜色
-    if '--no-color' in sys.argv:
-        os.environ['NO_COLOR'] = '1'
-        sys.argv.remove('--no-color')
-
-
 
     parser = argparse.ArgumentParser(
         prog='strategy',
@@ -102,8 +95,71 @@ def main():
     chart_cmd.register(subparsers)
     portfolio_cmd.register(subparsers)
     help_cmd.register(subparsers)
+    return parser
 
-    args = parser.parse_args()
+
+def _prepare_argv(argv):
+    argv = list(argv)
+    # 提前检查 --no-color，以便后续命令保持兼容；保留 parser 参数用于 --help 展示。
+    if '--no-color' in argv:
+        os.environ['NO_COLOR'] = '1'
+        argv.remove('--no-color')
+    return argv
+
+
+def _run_command(argv, parser):
+    args = parser.parse_args(_prepare_argv(argv))
+    if not getattr(args, 'command', None) and not getattr(args, 'func', None):
+        _print_prompt()
+        return
+    args.func(args)
+
+
+def _interactive_loop():
+    print(header('QuantCLI 交互模式'))
+    print(dim('输入 help 查看命令，输入 exit 或 quit 退出。'))
+    print()
+
+    while True:
+        try:
+            line = input('QuantCLI> ').strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+
+        if not line:
+            continue
+        if line.lower() in {'exit', 'quit'}:
+            break
+
+        try:
+            argv = shlex.split(line)
+        except ValueError as exc:
+            print(f'命令解析错误：{exc}')
+            continue
+
+        try:
+            _run_command(argv, _build_parser())
+        except SystemExit as exc:
+            if exc.code not in (0, None):
+                print(dim(f'命令退出码：{exc.code}'))
+
+    print('已退出 QuantCLI')
+
+
+def main():
+    _normalize_argv()
+
+    parser = _build_parser()
+    argv = _prepare_argv(sys.argv[1:])
+    if not argv:
+        if hasattr(sys.stdin, 'isatty') and sys.stdin.isatty():
+            _interactive_loop()
+        else:
+            _print_prompt()
+        return
+
+    args = parser.parse_args(argv)
     if not getattr(args, 'command', None) and not getattr(args, 'func', None):
         _print_prompt()
         return
