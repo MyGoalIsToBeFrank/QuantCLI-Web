@@ -1,0 +1,969 @@
+.emsider .icon {
+  display: inline-block;
+  background-image: url(img/sprites.png?v=4);
+  background-repeat: no-repeat;
+  vertical-align: -5px;
+  *vertical-align: 0px;
+}
+.emsider .icon_bdsj {
+  width: 50px;
+  height: 50px;
+  background-position: -305px -117px;
+}
+.emsider .icon_bdzqzh {
+  width: 50px;
+  height: 50px;
+  background-position: -250px -117px;
+}
+.emsider .icon_dongtai {
+  width: 18px;
+  height: 18px;
+  background-position: -191px -144px;
+}
+.emsider .icon_dongtai2 {
+  width: 18px;
+  height: 18px;
+  background-position: -168px -144px;
+}
+.emsider .icon_emsclose {
+  width: 13px;
+  height: 13px;
+  background-position: -189px -167px;
+}
+.emsider .icon_fbwz {
+  width: 50px;
+  height: 50px;
+  background-position: -250px -172px;
+}
+.emsider .icon_ktrzrq {
+  width: 50px;
+  height: 50px;
+  background-position: -250px -62px;
+}
+.emsider .icon_llzx {
+  width: 50px;
+  height: 50px;
+  background-position: -305px -62px;
+}
+.emsider .icon_message {
+  width: 19px;
+  height: 19px;
+  background-position: -360px -86px;
+}
+.emsider .icon_newdot {
+  width: 8px;
+  height: 8px;
+  background-position: -270px -227px;
+}
+.emsider .icon_nocontent {
+  width: 100px;
+  height: 110px;
+  background-position: -145px 0px;
+}
+.emsider .icon_note {
+  width: 11px;
+  height: 11px;
+  background-position: -145px -189px;
+}
+.emsider .icon_options {
+  width: 16px;
+  height: 15px;
+  background-position: -168px -167px;
+}
+.emsider .icon_qr {
+  width: 24px;
+  height: 24px;
+  background-position: -145px -115px;
+}
+.emsider .icon_qrbig {
+  width: 140px;
+  height: 236px;
+  background-position: 0px 0px;
+}
+.emsider .icon_rightarrow {
+  width: 8px;
+  height: 15px;
+  background-position: -237px -144px;
+}
+.emsider .icon_search {
+  width: 19px;
+  height: 19px;
+  background-position: -360px -117px;
+}
+.emsider .icon_search2 {
+  width: 18px;
+  height: 18px;
+  background-position: -221px -115px;
+}
+.emsider .icon_setting {
+  width: 19px;
+  height: 18px;
+  background-position: -174px -115px;
+}
+.emsider .icon_tipd {
+  width: 132px;
+  height: 57px;
+  background-position: -250px 0px;
+}
+.emsider .icon_tj {
+  width: 18px;
+  height: 17px;
+  background-position: -214px -144px;
+}
+.emsider .icon_tj2 {
+  width: 18px;
+  height: 17px;
+  background-position: -145px -167px;
+}
+.emsider .icon_toparrow {
+  width: 15px;
+  height: 8px;
+  background-position: -250px -227px;
+}
+.emsider .icon_user {
+  width: 18px;
+  height: 19px;
+  background-position: -360px -172px;
+}
+.emsider .icon_user2 {
+  width: 18px;
+  height: 19px;
+  background-position: -360px -197px;
+}
+.emsider .icon_wwc {
+  width: 50px;
+  height: 20px;
+  background-position: -305px -197px;
+}
+.emsider .icon_xiaoxi {
+  width: 19px;
+  height: 19px;
+  background-position: -360px -62px;
+}
+.emsider .icon_xiaoxi2 {
+  width: 19px;
+  height: 19px;
+  background-position: -360px -141px;
+}
+.emsider .icon_ywc {
+  width: 50px;
+  height: 20px;
+  background-position: -305px -172px;
+}
+.emsider .icon_zixuan {
+  width: 18px;
+  height: 18px;
+  background-position: -145px -144px;
+}
+.emsider .icon_zixuan2 {
+  width: 18px;
+  height: 18px;
+  background-position: -198px -115px;
+}
+.emsider .icon_zks {
+  width: 13px;
+  height: 12px;
+  background-position: -207px -167px;
+}
+.emsider .icon_zkx {
+  width: 13px;
+  height: 12px;
+  background-position: -225px -167px;
+}
+.emsider {
+  line-height: normal;
+  color: #474747;
+  font-size: 12px;
+  font-family: 'microsoft yahei', simsun;
+}
+.emsider input {
+  font-family: 'microsoft yahei', simsun;
+}
+.emsider a:link,
+.emsider a:visited {
+  color: #003398;
+  text-decoration: none;
+}
+.emsider a:hover {
+  color: #ea5404;
+  text-decoration: none;
+}
+.emsider a.bclink:link,
+.emsider a.bclink:visited {
+  color: #474747;
+  text-decoration: none;
+}
+.emsider a.bclink:hover {
+  color: #ea5404;
+  text-decoration: none;
+}
+.emsider ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.emsider li {
+  padding: 0;
+  margin: 0;
+}
+.emsider i {
+  font-style: normal;
+}
+.emsider .emsiderbar {
+  position: fixed;
+  z-index: 1100;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 600px;
+  background-color: #747474;
+}
+.emsider .emsider_loginbox {
+  display: none;
+  border: 1px solid #DFDEDE;
+  position: absolute;
+  top: 85px;
+  left: -370px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 6px;
+  background-color: #fff;
+  height: 460px;
+}
+.emsider .emsider_menu {
+  margin-top: 50px;
+  width: 100%;
+}
+.emsider .emsider_menu li {
+  display: block;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 14px 0 0 0;
+}
+.emsider .emsider_menu li.on {
+  background-color: #EA5404;
+  margin-top: -1px;
+  border-top: 1px solid #EA5404;
+}
+.emsider .emsider_menu li.on .emsider_sp {
+  background-color: transparent;
+}
+.emsider .emsider_menu li.movepre .emsider_sp {
+  background-color: transparent;
+}
+.emsider .emsider_menu li .icon {
+  display: block;
+  margin: 0 auto 8px auto;
+}
+.emsider .emsider_menu li .emsider_sp {
+  width: 24px;
+  background-color: #909090;
+  height: 1px;
+  font-size: 1px;
+  margin: 14px auto 0 auto;
+}
+.emsider .emsider_menu li .emsider_spb {
+  width: 24px;
+  height: 1px;
+  font-size: 1px;
+  margin: 21px auto 0 auto;
+}
+.emsider .emsider_menu li:hover {
+  background-color: #EA5404;
+  margin-top: -1px;
+  border-top: 1px solid #EA5404;
+  cursor: pointer;
+}
+.emsider .emsider_menu li:hover .emsider_sp {
+  background-color: transparent;
+}
+.emsider .emsider_menu li .icon_newdot {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+}
+.emsider .emsider_menu .emsider_menu_lis {
+  padding-top: 20px;
+}
+.emsider .emsider_menu .emsider_menu_lis .icon_newdot {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+.emsider .emsider_bot {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.emsider .emsider_bot li {
+  text-align: center;
+  padding: 7px 0;
+  display: block;
+  width: 100%;
+}
+.emsider .emsider_bot li.on {
+  background-color: #EA5404;
+}
+.emsider .emsider_bot li .icon {
+  display: block;
+  margin: 0 auto 3px auto;
+}
+.emsider .emsider_bot li a:link,
+.emsider .emsider_bot li a:visited {
+  width: 100%;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+.emsider .emsider_bot li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.emsider .emsider_bot li:hover {
+  background-color: #EA5404;
+  cursor: pointer;
+}
+.emsider .emsider_bot .emsider_qrli {
+  position: relative;
+}
+.emsider .emsider_bot .emsider_qrli .emsider_qrdiv {
+  display: none;
+  cursor: default;
+  position: absolute;
+  right: 40px;
+  bottom: -3px;
+}
+.emsider .emsider_bot .emsider_setting_btn {
+  padding-top: 12px;
+  padding-bottom: 9px;
+}
+.emsider .emsider_c {
+  width: 270px;
+  padding: 0 10px;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  z-index: 1100;
+  top: 0;
+  right: -290px;
+}
+.emsider .emsider_c .emsider_ct {
+  font-size: 14px;
+  height: 30px;
+  border-bottom: 1px solid #EEEEEE;
+  padding-top: 10px;
+  position: relative;
+}
+.emsider .emsider_c .emsider_ct .emsider_cs {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.emsider .emsider_c .emsider_ct .emsider_cs:hover {
+  background-color: #E1E1E1;
+}
+.emsider .emsider_c .emsider_ct .emsider_cs .icon {
+  display: block;
+  margin: 5px auto 0 auto;
+}
+.emsider .emsider_c .emsider_ct #jtoptions {
+  display: none;
+  position: absolute;
+  top: 9px;
+  right: 30px;
+  cursor: pointer;
+}
+.emsider .emsider_c .emsider_user {
+  height: 80px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.emsider .emsider_c .emsider_user .emsider_user_img {
+  position: absolute;
+}
+.emsider .emsider_c .emsider_user .emsider_user_img img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid #DCDCDC;
+}
+.emsider .emsider_c .emsider_user .emsider_user_name {
+  padding-left: 90px;
+  padding-top: 15px;
+}
+.emsider .emsider_c .emsider_user .emsider_user_name .emsider_user_namet {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.emsider .emsider_c .emsider_user .emsider_user_name #userjf {
+  color: #EA5404;
+}
+.emsider .emsider_c .emsider_qd {
+  border-radius: 3px;
+  width: 232px;
+  margin: 2px auto 0 auto;
+  padding: 4px;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdbtn {
+  margin-left: 70px;
+  width: 70px;
+  height: 32px;
+  display: block;
+  background-color: #4B89E5;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 2px;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdbtn:hover {
+  background-color: #3C6CB5;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdybtn {
+  position: absolute;
+  width: 70px;
+  height: 32px;
+  display: block;
+  background-color: #8E8E8E;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 2px;
+  cursor: default;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdybtn:hover {
+  background-color: #8E8E8E;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdf {
+  padding-left: 80px;
+}
+.emsider .emsider_c .emsider_qd .emsider_qdf span {
+  font-weight: bold;
+  color: #EA5404;
+  padding: 0 2px;
+}
+.emsider .emsider_c .emsider_nums {
+  margin-top: 20px;
+  clear: both;
+  height: 40px;
+}
+.emsider .emsider_c .emsider_nums .emsider_nums_i {
+  float: left;
+  width: 85px;
+  height: 40px;
+  text-align: center;
+  line-height: 150%;
+}
+.emsider .emsider_c .emsider_nums .emsider_nums_i i {
+  font-size: 16px;
+}
+.emsider .emsider_c .emsider_nums .emsider_nums_is {
+  float: left;
+  height: 35px;
+  width: 0;
+  font-size: 1px;
+  border-left: 1px solid #DBDBDB;
+}
+.emsider .emsider_c .emsider_taskt {
+  clear: both;
+  padding: 20px 0;
+}
+.emsider .emsider_c .emsider_taskt .emsider_tasktd {
+  width: 172px;
+  margin: 0 auto;
+  text-align: center;
+}
+.emsider .emsider_c .emsider_taskt .emsider_tasktd .emsider_tasktdh {
+  position: relative;
+  border-top: 1px solid #E7E7E7;
+  top: 10px;
+}
+.emsider .emsider_c .emsider_taskt .emsider_tasktd .emsider_tasktdht {
+  position: relative;
+}
+.emsider .emsider_c .emsider_taskt .emsider_tasktd .emsider_tasktdht span {
+  font-size: 14px;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 12px;
+}
+.emsider .emsider_c .emsider_taskb {
+  clear: both;
+}
+.emsider .emsider_c .emsider_taskb .emsider_taski {
+  cursor: pointer;
+  float: left;
+  width: 85px;
+  height: 100px;
+  text-align: center;
+}
+.emsider .emsider_c .emsider_taskb .emsider_taski .icon {
+  display: block;
+  margin: 0 auto 5px auto;
+}
+.emsider .emsider_c .emsider_taskb .emsider_taski:hover {
+  position: relative;
+}
+.emsider .emsider_c .emsider_taskbfs {
+  width: 50px;
+  height: 20px;
+  background-color: #D8B47D;
+  display: inline-block;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 9px;
+  color: #fff;
+}
+.emsider .emsider_c .emsider_taskbyfs {
+  width: 50px;
+  height: 20px;
+  background-color: #7F7F7F;
+  display: inline-block;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 9px;
+  color: #fff;
+}
+.emsider .emsider_c .emsider_taskit {
+  position: absolute;
+  left: -25px;
+  top: 50px;
+  display: inline-block;
+  background-image: url(img/sprites.png?v=4);
+  background-repeat: no-repeat;
+  vertical-align: -5px;
+  *vertical-align: 0px;
+  width: 132px;
+  height: 57px;
+  background-position: -250px 0px;
+  display: none;
+}
+.emsider .emsider_c .emsider_taskit div {
+  padding: 15px 12px 5px 12px;
+  text-align: center;
+}
+.emsider .emsider_search .emsider_seabf {
+  display: block;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+.emsider .emsider_search .emsider_seabi {
+  width: 220px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #EA5404;
+  padding: 0 5px;
+  outline: none;
+  vertical-align: bottom;
+  border-radius: 3px 0 0 3px;
+}
+.emsider .emsider_search .emsider_seabs {
+  width: 38px;
+  height: 36px;
+  border: 0;
+  background-color: #EA5404;
+  color: #fff;
+  outline: none;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 0;
+  vertical-align: bottom;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+.emsider .emsider_search .emsider_seabs:hover {
+  background-color: #C74600;
+}
+.emsider .emsider_search .suggest2017 {
+  border: none;
+  box-shadow: none;
+  font-family: 'microsoft yahei';
+}
+.emsider .emsider_grzx,
+.emsider .emsider_search,
+.emsider .emsider_favstock,
+.emsider .emsider_setting,
+.emsider .emsider_message {
+  display: none;
+}
+.emsider #emsider_pr3 .personalrecommend3 {
+  font-family: 'microsoft yahei';
+  height: 100%;
+}
+.emsider #emsider_pr3 .personalrecommend3 .maintabl {
+  padding-left: 0;
+}
+.emsider #emsider_pr3 .pr3_mbsetting {
+  top: -5px;
+}
+.emsider #emsider_pr3 .personalrecommend3 .pr3_mbsetting .mbsetting_t ul li a {
+  margin: 0 5px;
+}
+.emsider #emsider_pr3 .personalrecommend3 .pr3_prbody .prbox .prbox_t td,
+.emsider #emsider_pr3 .personalrecommend3 .pr3_prbody .prbox .prbox_t th {
+  font-family: Arial, 'microsoft yahei';
+}
+.emsider #emsider_pr3 .personalrecommend3 .pr3_prbody {
+  border: 0;
+}
+.emsider #emsider_pr3 .personalrecommend3 .pr3_prbody .prbox {
+  margin: 5px 0;
+}
+.emsider #emsider_pr3 .personalrecommend3 .maintabl {
+  border: 0;
+}
+.emsider .emsider_linklist {
+  clear: both;
+  overflow: auto;
+}
+.emsider .emsider_linklist .emsider_linkul .emsider_linklt {
+  cursor: pointer;
+  margin-top: 15px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background-color: #ea5404;
+  border-radius: 3px;
+  position: relative;
+}
+.emsider .emsider_linklist .emsider_linkul .emsider_linklt .emsider_linkltzk {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 20px;
+  height: 20px;
+}
+.emsider .emsider_linklist .emsider_linkul .emsider_linklt .emsider_linkltzk .icon {
+  vertical-align: top;
+}
+.emsider .emsider_linklist .emsider_linkul .emsider_linklt .emsider_linkltzk .icon_zkx {
+  display: none;
+}
+.emsider .emsider_linklist .emsider_linkul > a {
+  color: #474747;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px dashed #dddddd;
+}
+.emsider .emsider_linklist .emsider_linkul > a:hover {
+  color: #ea5404;
+}
+.emsider .emsider_linklist .emsider_linkul > a:last-child {
+  border-bottom: 0;
+}
+.emsider .setting_zkdiv {
+  font-size: 14px;
+  padding: 14px 0 14px 5px;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 10px;
+}
+.emsider .emsider_backtop {
+  height: 32px;
+}
+.emsider .emsider_backtop .emsider_backtop_i {
+  display: none;
+}
+.emsider .emsider_backtop:hover .emsider_backtop_t {
+  display: none;
+}
+.emsider .emsider_backtop:hover .emsider_backtop_i {
+  display: block;
+  padding: 11px 0 10px 0;
+  *padding: 7px 0 6px 0;
+}
+.emsider .favstocktab {
+  border-top: 1px solid #eeeeee;
+  padding: 10px 0 0 0;
+  text-align: center;
+}
+.emsider .favstocktab a {
+  display: inline-block;
+  width: 130px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  color: #474747;
+  background-color: #e6e6e6;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.emsider .favstocktab a:hover {
+  color: #ea5404;
+}
+.emsider .favstocktab a.on {
+  background-color: #ea5404;
+  color: #fff;
+}
+.emsider .favstocktab a.on:hover {
+  color: #fff;
+}
+.emsider .emsider_zxg_table {
+  margin-top: 10px;
+  font-family: simsun;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e5e5;
+}
+.emsider .emsider_zxg_table th {
+  height: 29px;
+  vertical-align: middle;
+  font-weight: normal;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f3f3f3;
+}
+.emsider .emsider_zxg_table td {
+  padding: 0 3px;
+  height: 35px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e5e5e5;
+}
+.emsider .emsider_zxg_table .tdl1 {
+  padding-right: 2px;
+}
+.emsider .emsider_zxg_table .tdl2 {
+  padding-left: 2px;
+}
+.emsider .emsider_zxg_table .tar {
+  text-align: right;
+}
+.emsider .emsider_zxg_table .tdkb {
+  width: 0px;
+  padding: 0 4px;
+  border-bottom: none;
+}
+.emsider .stockup {
+  color: #ff0000;
+}
+.emsider .stockdown {
+  color: #009944;
+}
+.emsider .hkstock {
+  display: inline-block;
+  background-color: #bb66ee;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+  margin-left: 3px;
+  height: 14px;
+  line-height: 14px;
+}
+.emsider .usstock {
+  display: inline-block;
+  background-color: #e76464;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+  margin-left: 3px;
+  height: 14px;
+  line-height: 14px;
+}
+.emsider .ukstock {
+  display: inline-block;
+  background-color: #3495ff;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+  margin-left: 3px;
+  height: 14px;
+  line-height: 14px;
+}
+.emsider .zxg_show_more a {
+  display: block;
+  width: 100%;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  background-color: #e6e6e6;
+  color: #474747;
+  font-family: simsun;
+}
+.emsider .zxg_show_more a:hover {
+  background-color: #d5d5d5;
+}
+.emsider .messagetab {
+  border-top: 1px solid #eeeeee;
+  padding: 10px 0 0 0;
+  text-align: left;
+}
+.emsider .messagetab a {
+  display: inline-block;
+  padding: 0 8px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #474747;
+  background-color: #e6e6e6;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-right: 3px;
+  position: relative;
+}
+.emsider .messagetab a:hover {
+  color: #ea5404;
+}
+.emsider .messagetab a.on {
+  background-color: #ea5404;
+  color: #fff;
+  cursor: default;
+}
+.emsider .messagetab a.on:hover {
+  color: #fff;
+}
+.emsider .messagetab a .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.emsider .messagelistdiv {
+  overflow: auto;
+  margin-top: 10px;
+  font-family: simsun;
+}
+.emsider .messagelistdiv .vday {
+  background-color: #eeeeee;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+}
+.emsider .messagelistdiv .vday .icon {
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+.emsider .messagelistdiv .item {
+  line-height: 175%;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px 0;
+}
+.emsider .gubalistdiv {
+  overflow: auto;
+  margin-top: 10px;
+  font-family: simsun;
+}
+.emsider .gubalistdiv .vday {
+  background-color: #eeeeee;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+}
+.emsider .gubalistdiv .vday .icon {
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+.emsider .gubalistdiv .item {
+  line-height: 175%;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px 0;
+}
+.emsider .newslistdiv {
+  overflow: auto;
+  margin-top: 10px;
+  font-family: simsun;
+}
+.emsider .newslistdiv .vday {
+  background-color: #eeeeee;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+}
+.emsider .newslistdiv .vday .icon {
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+.emsider .newslistdiv .item {
+  line-height: 175%;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px 0;
+}
+.emsider .newslistdiv .item .newstitle {
+  padding: 5px 0;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 20px;
+  line-height: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.emsider .newslistdiv .item .newscontent {
+  overflow: hidden;
+  max-height: 41px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.emsider .newslistdiv .item .newstime {
+  color: #666;
+}
+.emsider .newslistdiv .item .newscontent {
+  word-break: break-all;
+}
+.emsider .ggspan {
+  display: inline-block;
+  background-color: #ff4f5d;
+  color: #fff;
+  padding: 0px 3px;
+  border-radius: 2px;
+  margin: 0 3px 0 0;
+  height: 16px;
+  line-height: 16px;
+  vertical-align: 0px;
+}
+.emsider .ybspan {
+  display: inline-block;
+  background-color: #4f89ff;
+  color: #fff;
+  padding: 0px 3px;
+  border-radius: 2px;
+  margin: 0 3px 0 0;
+  height: 16px;
+  line-height: 16px;
+  vertical-align: 0px;
+}
+.emsider .sscroll {
+  /*滚动条整体部分,必须要设置*/
+  /*滚动条的轨道*/
+  /*滚动条的滑块按钮*/
+  /*滚动条的上下两端的按钮*/
+}
+.emsider .sscroll::-webkit-scrollbar {
+  width: 8px;
+}
+.emsider .sscroll::-webkit-scrollbar-track {
+  background-color: #e7e7e7;
+  border-radius: 3px;
+}
+.emsider .sscroll::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1;
+  border-radius: 3px;
+}
+.emsider .nocontent {
+  text-align: center;
+  font-size: 14px;
+  padding: 50px 0;
+}
+.emsider .nocontent .icon {
+  display: block;
+  margin: 0 auto 10px auto;
+}
+.emsider #emsider_zxg_div {
+  overflow: auto;
+}
+.emsider .nologin {
+  text-align: center;
+  padding: 40px 0;
+}

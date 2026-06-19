@@ -1,0 +1,131 @@
+/*
+* vertical news ticker
+* Tadas Juozapaitis ( kasp3rito@gmail.com )
+* http://www.jugbit.com/jquery-vticker-vertical-news-ticker/
+* v 1.4
+* 已经修改了不是原本的插件了，添加了一个按钮的hover事件和点击事件，按钮是写死的
+*/
+
+(function ($) {
+    $.fn.vTicker = function (options) {
+        var defaults = {
+            speed: 300,
+            pause: 5000,
+            showItems: 3,
+            animation: '',
+            mousePause: true,
+            isPaused: false,
+            direction: 'up',
+            height: 0
+        };
+
+        var options = $.extend(defaults, options);
+
+        moveUp = function (obj2, height, options) {
+            if (options.isPaused)
+                return;
+
+            var obj = obj2.children('ul');
+
+            var clone = obj.children('li').eq(0).clone(true);
+
+            if (options.height > 0) {
+                height = obj.children('li').eq(0).height();
+            }
+
+            obj.animate({ top: '-=' + height + 'px' }, options.speed, function () {
+                $(this).children('li').eq(0).remove();
+                $(this).css('top', '0px');
+            });
+
+            if (options.animation == 'fade') {
+                obj.children('li').eq(0).fadeOut(options.speed);
+                if (options.height == 0) {
+                    obj.children('li:eq(' + options.showItems + ')').hide().fadeIn(options.speed).show();
+                }
+            }
+
+            clone.appendTo(obj);
+        };
+
+        moveDown = function (obj2, height, options) {
+            if (options.isPaused)
+                return;
+
+            var obj = obj2.children('ul');
+
+            var clone = obj.children('li:last').clone(true);
+
+            if (options.height > 0) {
+                height = obj.children('li').eq(0).height();
+            }
+            obj.prepend(clone);             
+            obj.css('top', '-' + height + 'px');
+            obj.stop().animate({ top: 0 }, options.speed, function () {
+                $(this).children('li:last').remove();
+            });  
+            if (options.animation == 'fade') {
+                if (options.height == 0) {
+                    obj.children('li:eq(' + options.showItems + ')').fadeOut(options.speed);
+                }
+                obj.children('li').eq(0).hide().fadeIn(options.speed).show();
+            }
+        };   
+        return this.each(function () {
+            var obj = $(this);
+            var maxHeight = 0;
+
+            obj.css({ overflow: 'hidden', position: 'relative' })
+			.children('ul').css({ position: 'absolute', margin: 0, padding: 0 })
+			.children('li').css({ margin: 0, padding: 0 });
+
+            if (options.height == 0) {
+                obj.children('ul').children('li').each(function () {
+                    if ($(this).height() > maxHeight) {
+                        maxHeight = $(this).height();
+                    }
+                });
+
+                obj.children('ul').children('li').each(function () {
+                    $(this).height(maxHeight);
+                });
+
+                obj.height(maxHeight * options.showItems);
+            }
+            else {
+                obj.height(options.height);
+            }
+            function int() {
+                if (options.direction == 'up') {                   
+                    moveUp(obj, maxHeight, options);
+                }
+                else {
+                    moveDown(obj, maxHeight, options);
+                }
+            }
+            var interval = setInterval(int, options.pause);
+
+            if (options.mousePause) {
+                obj.bind("mouseenter", function () {
+                    options.isPaused = true;
+                }).bind("mouseleave", function () {
+                    options.isPaused = false;
+                });
+            }
+            $(".scrollBtn").mouseover(function () {
+                clearInterval(interval);
+            }).mouseout(function () {
+                interval = setInterval(int, options.pause);
+                });
+            var timer;
+            
+            $(".scrollBtn").click(function () {  
+                // console.info(111)
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    moveDown(obj, maxHeight, options);   
+                }, 200);     
+            })
+        });
+    };
+})(jQuery);

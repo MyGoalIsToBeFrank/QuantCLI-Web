@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "updated_at": "2026-06-19T18:08:24.967475",
+    "interval_days": 30
+  },
+  "records": {
+    "002156.SZ": {
+      "symbol": "002156.SZ",
+      "name": "通富微电",
+      "market": "A股",
+      "last_analysis_date": "2026-06-18",
+      "next_due_date": "2026-07-18",
+      "report_path": "reports/fundamental\\002156.SZ\\20260618_report.md",
+      "history": [
+        {
+          "date": "2026-06-18",
+          "report_path": "reports/fundamental\\002156.SZ\\20260618_report.md",
+          "source_file": "C:\\Users\\CHUYUD~1\\AppData\\Local\\Temp\\agent_report.md"
+        }
+      ]
+    },
+    "601225.SS": {
+      "symbol": "601225.SS",
+      "name": "陕西煤业",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "300308.SZ": {
+      "symbol": "300308.SZ",
+      "name": "中际旭创",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "600460.SH": {
+      "symbol": "600460.SH",
+      "name": "士兰微",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "605358.SH": {
+      "symbol": "605358.SH",
+      "name": "立昂微",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "000725.SZ": {
+      "symbol": "000725.SZ",
+      "name": "京东方A",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "002185.SZ": {
+      "symbol": "002185.SZ",
+      "name": "华天科技",
+      "market": "A股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    },
+    "AMD": {
+      "symbol": "AMD",
+      "name": "AMD",
+      "market": "美股",
+      "last_analysis_date": null,
+      "next_due_date": "2026-06-19",
+      "report_path": null,
+      "history": []
+    }
+  }
+}

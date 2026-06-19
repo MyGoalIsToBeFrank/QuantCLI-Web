@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "max_total_position": 0.4,
+  "max_single_position": 0.1,
+  "max_late_session_position": 0.2,
+  "min_cash_ratio": 0.2,
+  "drawdown_limit_pct": 5.0,
+  "drawdown_event_threshold_pct": 3.0,
+  "max_drawdown_events": 3,
+  "rebalance_threshold": 0.05,
+  "late_session_take_profit_pct": 2.0,
+  "late_session_exit": "next_day_tail_if_not_hit",
+  "risk_lookback_days": 120,
+  "single_drawdown_limit_pct": 25.0
+}

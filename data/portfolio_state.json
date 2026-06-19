@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-06-19T15:00:00+08:00",
+  "cash": 100000.0,
+  "lot_size": 100,
+  "positions": {}
+}

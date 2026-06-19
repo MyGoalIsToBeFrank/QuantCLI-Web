@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>量化策略平台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <h1>量化策略平台</h1>
+      <span class="subtitle">多股票 · 多 Pipeline · 多策略</span>
+    </div>
+
+    <nav class="top-nav">
+      <button class="nav-tab active" data-view="dashboard">📊 仪表盘</button>
+      <button class="nav-tab" data-view="analysis">🔬 策略分析</button>
+      <button class="nav-tab" data-view="batch">🚀 批量报告</button>
+      <button class="nav-tab" data-view="portfolio">💼 组合决策</button>
+      <button class="nav-tab" data-view="fundamental">📈 基本面记录</button>
+    </nav>
+
+    <div class="stock-selector">
+      <label for="stock-select">标的</label>
+      <select id="stock-select"></select>
+    </div>
+
+    <div class="date" id="current-date">--</div>
+  </header>
+
+  <!-- 仪表盘视图 -->
+  <div id="view-dashboard" class="main-container view active">
+    <!-- 左侧 K 线区域 -->
+    <div class="chart-area">
+      <div class="chart-card">
+        <div class="chart-title" id="chart-title">K 线图</div>
+        <div id="stock-chart" class="chart"></div>
+      </div>
+    </div>
+
+    <!-- 右侧控制面板 -->
+    <aside class="control-panel">
+      <section class="panel-card">
+        <h3>当前最佳组合</h3>
+        <div id="dashboard-best-combo" class="output-box">加载中...</div>
+      </section>
+
+      <section class="panel-card">
+        <h3>操作</h3>
+        <div class="btn-grid">
+          <button id="btn-update" class="btn btn-neutral" title="从数据源增量拉取该股票最新日线">🔄 更新数据</button>
+          <button id="btn-predict" class="btn btn-primary" title="基于最佳组合生成今日操作建议">🎯 运行决策</button>
+          <button id="btn-backtest" class="btn btn-secondary" title="用所选 Pipeline×Strategy 回测该股票">▶ 运行回测</button>
+        </div>
+      </section>
+
+      <section class="panel-card">
+        <h3>通用参数</h3>
+        <form id="trade-params-form" class="form-grid">
+          <label for="dp-capital">初始资金</label>
+          <input type="number" step="1000" id="dp-capital" value="100000">
+          <label for="dp-fee">单笔手续费</label>
+          <input type="number" step="0.1" id="dp-fee" value="5">
+          <label for="dp-lot">每手股数</label>
+          <input type="number" step="1" id="dp-lot" value="100">
+        </form>
+      </section>
+
+      <section class="panel-card">
+        <h3>T日决策</h3>
+        <div class="form-grid" style="margin-bottom:10px;">
+          <label for="today-open">今日开盘价</label>
+          <input type="number" step="0.01" id="today-open" placeholder="留空则使用日线数据">
+        </div>
+        <div id="strategy-output" class="output-box">输入今日开盘价后点击“运行决策”查看操作建议</div>
+      </section>
+
+      <section class="panel-card">
+        <h3>组合回测</h3>
+        <form id="backtest-form" class="form-grid">
+          <label for="bt-pipeline">Pipeline</label>
+          <select id="bt-pipeline"></select>
+          <label for="bt-strategy">Strategy</label>
+          <select id="bt-strategy"></select>
+          <label for="bt-start">开始日期</label>
+          <input type="date" id="bt-start" value="2024-06-01">
+          <label for="bt-end">结束日期</label>
+          <input type="date" id="bt-end">
+          <label for="bt-stop-loss">回撤止损(%)</label>
+          <input type="number" step="0.1" id="bt-stop-loss" placeholder="可选">
+        </form>
+        <div id="backtest-output" class="output-box" style="margin-top:10px;">点击“运行回测”查看结果</div>
+      </section>
+
+      <section class="panel-card log-panel">
+        <h3>日志</h3>
+        <div id="log-box" class="log-box"></div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- 批量报告视图 -->
+  <div id="view-batch" class="main-container view">
+    <div class="chart-area">
+      <div class="panel-card">
+        <h3>批量分析结果</h3>
+        <div id="batch-analysis-table" class="output-box">请选择参数并点击“生成批量报告”</div>
+      </div>
+      <div class="panel-card" style="margin-top:12px; flex:1;">
+        <h3>批量回测结果</h3>
+        <div id="batch-backtest-table" class="output-box" style="height: calc(100% - 40px); overflow:auto;"></div>
+      </div>
+    </div>
+
+    <aside class="control-panel">
+      <section class="panel-card">
+        <h3>批量报告设置</h3>
+        <form class="form-grid">
+          <label>开始日期</label>
+          <input type="date" id="batch-start" value="2024-06-01">
+          <label>结束日期</label>
+          <input type="date" id="batch-end">
+          <label>最大回撤约束(%)</label>
+          <input type="number" step="0.1" id="batch-max-drawdown" value="5">
+          <label>初始资金</label>
+          <input type="number" step="1000" id="batch-capital" value="100000">
+          <label>单笔手续费</label>
+          <input type="number" step="0.1" id="batch-fee" value="5">
+          <label>每手股数</label>
+          <input type="number" step="1" id="batch-lot" value="100">
+          <label>限定股票（逗号分隔，留空=全部）</label>
+          <input type="text" id="batch-symbols" placeholder="如 002156.SZ,AMD">
+        </form>
+        <button id="btn-run-batch-report" class="btn btn-primary btn-block" style="margin-top:10px;">🚀 生成批量报告</button>
+        <button id="btn-save-batch-combos" class="btn btn-secondary btn-block" style="margin-top:8px;">💾 保存最佳组合</button>
+      </section>
+
+      <section class="panel-card">
+        <h3>今日批量决策</h3>
+        <div id="batch-decision-table" class="output-box">生成批量报告后显示</div>
+      </section>
+
+      <section class="panel-card log-panel">
+        <h3>日志</h3>
+        <div id="log-box-batch" class="log-box"></div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- 组合决策视图 -->
+  <div id="view-portfolio" class="main-container view">
+    <div class="chart-area">
+      <div class="panel-card safety-banner">
+        ⚠️ 以下均为<strong>决策建议</strong>，非真实券商委托；系统不会自动下单。请以行情时间戳/来源为准核对数据。
+      </div>
+
+      <div class="panel-card">
+        <h3>组合状态</h3>
+        <form class="form-grid" id="portfolio-state-form">
+          <label for="pf-cash">现金</label>
+          <input type="number" step="100" id="pf-cash" value="100000">
+          <label for="pf-lot">每手股数</label>
+          <input type="number" id="pf-lot" value="100" readonly title="lot_size 固定为 100">
+        </form>
+        <button id="btn-save-pf-cash" class="btn btn-secondary btn-sm" style="margin-top:8px;">💾 保存现金</button>
+        <div id="portfolio-equity" class="output-box" style="margin-top:10px;">加载中...</div>
+      </div>
+
+      <div class="panel-card" style="margin-top:12px;">
+        <h3>持仓</h3>
+        <div id="portfolio-positions-table" class="output-box">加载中...</div>
+        <form class="form-grid" id="portfolio-position-form" style="margin-top:10px;">
+          <label for="pf-pos-symbol">代码</label>
+          <select id="pf-pos-symbol"></select>
+          <label for="pf-pos-shares">股数</label>
+          <input type="number" step="100" id="pf-pos-shares" placeholder="如 800">
+          <label for="pf-pos-cost">成本价</label>
+          <input type="number" step="0.01" id="pf-pos-cost" placeholder="如 62.5">
+        </form>
+        <button id="btn-add-pf-position" class="btn btn-primary" style="margin-top:8px;">➕ 添加/更新持仓</button>
+      </div>
+
+      <div class="panel-card" style="margin-top:12px; flex:1;">
+        <h3>决策结果</h3>
+        <div id="portfolio-decision-output" class="output-box" style="height: calc(100% - 40px); overflow:auto;">设置模式后点击“运行组合决策”</div>
+      </div>
+    </div>
+
+    <aside class="control-panel">
+      <section class="panel-card">
+        <h3>决策模式</h3>
+        <form class="form-grid">
+          <label for="pf-mode">模式</label>
+          <select id="pf-mode">
+            <option value="close_after_market">盘后（完整日线）</option>
+            <option value="open_realtime">开盘实时（已知开盘价）</option>
+            <option value="late_session">尾盘（行情快照）</option>
+          </select>
+          <label for="pf-symbols">限定股票（逗号分隔，留空=全部）</label>
+          <input type="text" id="pf-symbols" placeholder="如 002156.SZ,300308.SZ">
+        </form>
+        <div id="pf-quote-inputs" style="margin-top:10px; display:none;">
+          <p class="hint">为 open_realtime/late_session 模式按需录入行情（JSON）：</p>
+          <textarea id="pf-quote-json" rows="8" style="width:100%; box-sizing:border-box;"
+            placeholder='open_realtime: {"002156.SZ": 68.27}&#10;late_session: {"002156.SZ": {"price":68.27,"open":66.99,"high":69.35,"low":66.39,"prev_close":67.22,"volume":1000000,"timestamp":"2026-06-19T14:50:00+08:00"}}'></textarea>
+        </div>
+        <button id="btn-run-portfolio-decide" class="btn btn-primary btn-block" style="margin-top:10px;">🎯 运行组合决策</button>
+      </section>
+
+      <section class="panel-card">
+        <h3>风险配置</h3>
+        <form class="form-grid" id="portfolio-risk-form">
+          <label>最大总仓位</label>
+          <input type="number" step="0.01" id="rp-max-total">
+          <label>最大单股仓位</label>
+          <input type="number" step="0.01" id="rp-max-single">
+          <label>最大尾盘仓位</label>
+          <input type="number" step="0.01" id="rp-max-late">
+          <label>最低现金比例</label>
+          <input type="number" step="0.01" id="rp-min-cash">
+          <label>最大回撤限制(%)</label>
+          <input type="number" step="0.1" id="rp-dd-limit">
+          <label>最大回撤事件数</label>
+          <input type="number" step="1" id="rp-max-dd-events">
+        </form>
+        <button id="btn-save-risk-profile" class="btn btn-secondary btn-block" style="margin-top:8px;">💾 保存风险配置</button>
+      </section>
+
+      <section class="panel-card log-panel">
+        <h3>日志</h3>
+        <div id="log-box-portfolio" class="log-box"></div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- 基本面记录视图 -->
+  <div id="view-fundamental" class="main-container view">
+    <div class="chart-area">
+      <div class="panel-card">
+        <h3>基本面分析记录</h3>
+        <div id="fundamental-table" class="output-box">加载中...</div>
+      </div>
+      <div class="panel-card" style="margin-top:12px; flex:1;">
+        <h3>报告内容</h3>
+        <div id="fundamental-report-content" class="output-box" style="height: calc(100% - 40px); overflow:auto; white-space:pre-wrap;">点击上方记录查看报告</div>
+      </div>
+    </div>
+
+    <aside class="control-panel">
+      <section class="panel-card">
+        <h3>说明</h3>
+        <div class="output-box">
+          本面板只加载由 CLI/Agent 生成的基本面分析记录，不在 Web 端执行分析。<br><br>
+          如需触发分析或写回报告，请使用 CLI：<br>
+          <code>strategy fundamental check -s 002156.SZ</code><br>
+          <code>strategy fundamental prompt -s 002156.SZ</code><br>
+          <code>strategy fundamental report -s 002156.SZ -f report.md</code>
+        </div>
+      </section>
+
+      <section class="panel-card log-panel">
+        <h3>日志</h3>
+        <div id="log-box-fundamental" class="log-box"></div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- 策略分析视图 -->
+  <div id="view-analysis" class="main-container view">
+    <div class="chart-area">
+      <div class="panel-card">
+        <h3>季度最佳组合</h3>
+        <div id="best-combo-summary" class="output-box">请选择股票并点击“运行分析”</div>
+      </div>
+      <div class="panel-card" style="margin-top:12px; flex:1;">
+        <h3>策略排名</h3>
+        <div id="analysis-rankings" class="output-box" style="height: calc(100% - 40px); overflow:auto;">加载中...</div>
+      </div>
+    </div>
+
+    <aside class="control-panel">
+      <section class="panel-card">
+        <h3>策略分析设置</h3>
+        <form class="form-grid">
+          <label>股票</label>
+          <select id="analysis-stock"></select>
+          <label>开始日期</label>
+          <input type="date" id="analysis-start" value="2024-06-01">
+          <label>结束日期</label>
+          <input type="date" id="analysis-end">
+          <label>最大回撤约束(%)</label>
+          <input type="number" step="0.1" id="analysis-max-drawdown" value="5">
+          <label>限定 Pipeline（逗号分隔，留空=全部）</label>
+          <input type="text" id="analysis-pipelines" placeholder="如 macd,rsi,ma_dual">
+          <label>限定 Strategy（逗号分隔，留空=全部）</label>
+          <input type="text" id="analysis-strategies" placeholder="如 low_risk,macd_cross">
+        </form>
+        <button id="btn-run-analysis" class="btn btn-primary btn-block" style="margin-top:10px;">🔬 运行分析</button>
+        <button id="btn-save-best-combo" class="btn btn-secondary btn-block" style="margin-top:8px;">💾 保存最佳组合</button>
+      </section>
+
+      <section class="panel-card">
+        <h3>当前最佳组合</h3>
+        <div id="current-best-combo" class="output-box">加载中...</div>
+      </section>
+
+      <section class="panel-card">
+        <h3>说明</h3>
+        <div class="output-box">
+          策略分析会按季度滚动回测所有 (Pipeline × Strategy) 组合，
+          并按收益率、夏普、最大回撤综合打分，选出每季度最佳组合。
+          保存后，每日决策将默认使用该股票最近季度的最佳组合。
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- 全局 loading 遮罩 -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <img src="assets/loading.svg" alt="loading" class="loading-img">
+    <div class="loading-text">处理中...</div>
+  </div>
+
+  <!-- ECharts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/kline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

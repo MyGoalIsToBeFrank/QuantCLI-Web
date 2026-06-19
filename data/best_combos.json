@@ -1,0 +1,130 @@
+{
+  "601225.SS": {
+    "pipeline_config_id": "rsi_v1",
+    "pipeline_name": "rsi",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 0.892998962402336,
+      "max_drawdown_pct": -2.413534734176168,
+      "trade_count": 349,
+      "sharpe": 0.145308424903943
+    },
+    "last_evaluated": "2026-06-18T21:14:03.805289"
+  },
+  "002156.SZ": {
+    "pipeline_config_id": "ma_dual_v1",
+    "pipeline_name": "ma_dual",
+    "strategy_id": "prob_position",
+    "time_range": {
+      "start": "2025-12-18",
+      "end": "2026-06-17"
+    },
+    "metrics": {
+      "total_return_pct": 40.0,
+      "max_drawdown_pct": -3.5,
+      "trade_count": 48,
+      "sharpe": 3.2
+    },
+    "last_evaluated": "2026-06-19T18:24:59.175798"
+  },
+  "300308.SZ": {
+    "pipeline_config_id": "rsi_v1",
+    "pipeline_name": "rsi",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 2.271999816894521,
+      "max_drawdown_pct": -2.414618554651478,
+      "trade_count": 34,
+      "sharpe": 0.6416283975610279
+    },
+    "last_evaluated": "2026-06-18T21:18:13.469259"
+  },
+  "600460.SH": {
+    "pipeline_config_id": "ma_dual_v1",
+    "pipeline_name": "ma_dual",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 5.8410000228881875,
+      "max_drawdown_pct": -1.7622442156733493,
+      "trade_count": 222,
+      "sharpe": 1.3178280188221745
+    },
+    "last_evaluated": "2026-06-18T21:20:17.416680"
+  },
+  "605358.SH": {
+    "pipeline_config_id": "macd_v1",
+    "pipeline_name": "macd",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 8.750998573303214,
+      "max_drawdown_pct": -1.7466553105364961,
+      "trade_count": 214,
+      "sharpe": 1.7145243515128494
+    },
+    "last_evaluated": "2026-06-18T21:22:38.850789"
+  },
+  "000725.SZ": {
+    "pipeline_config_id": "rsi_v1",
+    "pipeline_name": "rsi",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 2.84879775047302,
+      "max_drawdown_pct": -2.0881084626082607,
+      "trade_count": 470,
+      "sharpe": 0.7687679502167304
+    },
+    "last_evaluated": "2026-06-18T21:23:17.426300"
+  },
+  "002185.SZ": {
+    "pipeline_config_id": "macd_v1",
+    "pipeline_name": "macd",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 4.173000822067263,
+      "max_drawdown_pct": -2.0587941803917276,
+      "trade_count": 303,
+      "sharpe": 0.8260664506432746
+    },
+    "last_evaluated": "2026-06-18T21:24:09.013758"
+  },
+  "AMD": {
+    "pipeline_config_id": "ma_dual_v1",
+    "pipeline_name": "ma_dual",
+    "strategy_id": "low_risk",
+    "time_range": {
+      "start": null,
+      "end": null
+    },
+    "metrics": {
+      "total_return_pct": 0.8719992065429727,
+      "max_drawdown_pct": -0.284000244140625,
+      "trade_count": 12,
+      "sharpe": 1.030819948487772
+    },
+    "last_evaluated": "2026-06-18T21:28:56.385715"
+  }
+}
